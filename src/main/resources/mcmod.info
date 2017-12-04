@@ -1,0 +1,16 @@
+[
+{
+  "modid": "sunkennavalships",
+  "name": "SunkenNavalShips",
+  "description": "Generates sunken naval ships.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "https://github.com/Iunius118/SunkenNavalShips",
+  "updateUrl": "",
+  "authorList": ["Iunius118"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
