@@ -1,6 +1,8 @@
 package iunius118.mods.sunkennavalships;
 
-import iunius118.mods.sunkennavalships.worldgen.WorldGenSunkenDestroyerA;
+import org.apache.logging.log4j.Logger;
+
+import iunius118.mods.sunkennavalships.world.gen.WorldGenSunkenDestroyerA;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -31,11 +33,13 @@ public class SunkenNavalShips
     public static final String MOD_VERSION = "${version}";
     public static final String MOD_DEPENDENCIES = "required-after:forge@[1.12-14.21.1.2387,)";
 
-    public static int sunkenShipProbability = 100;
+    public static Logger logger;
+    public static int sunkenShipProbability = 32;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
+        logger = event.getModLog();
         Config.loadConfig(event);
     }
 
@@ -52,6 +56,7 @@ public class SunkenNavalShips
         if (event.getModID().equals(MOD_ID))
         {
             Config.config.save();
+            sunkenShipProbability = Config.propSunkenShipProbability.getInt();
         }
     }
 
