@@ -1,5 +1,5 @@
 # SunkenNavalShips
-Generates sunken naval ships. For Minecraft 1.12.x with Forge.  
+Generates sunken naval ships. For Minecraft 1.12.x with Forge.  
 SunkenNavalShipsは、Minecraftの世界に沈没艦を生成するmodです。
 
 ## Versions
