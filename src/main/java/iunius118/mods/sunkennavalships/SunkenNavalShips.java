@@ -2,7 +2,7 @@ package iunius118.mods.sunkennavalships;
 
 import org.apache.logging.log4j.Logger;
 
-import iunius118.mods.sunkennavalships.world.gen.WorldGenSunkenDestroyerA;
+import iunius118.mods.sunkennavalships.world.gen.WorldGenSunkenNavalShip;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
@@ -46,7 +46,7 @@ public class SunkenNavalShips
     @EventHandler
     public void init(FMLInitializationEvent event)
     {
-        GameRegistry.registerWorldGenerator(new WorldGenSunkenDestroyerA(), 5);
+        GameRegistry.registerWorldGenerator(new WorldGenSunkenNavalShip(), 5);
         MinecraftForge.EVENT_BUS.register(this);    // For subscribing ConfigChangedEvent
     }
 

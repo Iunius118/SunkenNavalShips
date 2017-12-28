@@ -7,8 +7,6 @@ import java.util.Random;
 import iunius118.mods.sunkennavalships.SunkenNavalShips;
 import iunius118.mods.sunkennavalships.world.gen.structure.StructureSunkenDestroyerA;
 import iunius118.mods.sunkennavalships.world.gen.structure.StructureSunkenDestroyerA.Pieces;
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockLiquid;
 import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.EnumFacing;
@@ -18,23 +16,16 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.IChunkGenerator;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
-import net.minecraftforge.fml.common.IWorldGenerator;
 
-public class WorldGenSunkenDestroyerA implements IWorldGenerator
+public class WorldGenSunkenDestroyerA extends WorldGenSunkenNavalShip
 {
 
-    public static final int CHANCE_DENOMINATOR = 12800;
     public static final List<Biome> SPAWN_BIOMES = Arrays.<Biome> asList(Biomes.OCEAN, Biomes.DEEP_OCEAN);
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
     {
         EnumFacing facing = EnumFacing.getHorizontal(random.nextInt(4));
-
-        if (!canGenerate(random, chunkX, chunkZ, world))
-        {
-            return;
-        }
 
         // Check Biome
         if (!canGenerateBiome(facing, chunkX, chunkZ, world))
@@ -171,26 +162,7 @@ public class WorldGenSunkenDestroyerA implements IWorldGenerator
         structure.addBlocksToWorld(world, new BlockPos(x, 0, z), facing, placement);
     }
 
-    public boolean canGenerate(Random random, int chunkX, int chunkZ, World world)
-    {
-        int probability = SunkenNavalShips.sunkenShipProbability;
-
-        if (probability == 0)
-        {
-            return false;
-        }
-
-        int dimension = world.provider.getDimension();
-
-        // Exclude Nether and End.
-        if ((dimension == 1 || dimension == -1))
-        {
-            return false;
-        }
-
-        return random.nextInt(CHANCE_DENOMINATOR) < probability;
-    }
-
+    @Override
     public boolean canGenerateBiome(EnumFacing facing, int chunkX, int chunkZ, World world)
     {
         int x = chunkX * 16 + 8;
@@ -207,60 +179,5 @@ public class WorldGenSunkenDestroyerA implements IWorldGenerator
         return true;
     }
 
-    private int getBottomHeight(World world, int x, int z)
-    {
-        int y = world.getHeight(x, z);
-
-        for (; y > 0; y--)
-        {
-            Block block = world.getBlockState(new BlockPos(x, y, z)).getBlock();
-
-            if (!(block instanceof BlockLiquid) && block != Blocks.AIR)
-            {
-                break;
-            }
-        }
-
-        return y;
-    }
-
-    private int averageHeight(int height1, int height2, int heightDefault)
-    {
-        if (height1 < 1)
-        {
-            if (height2 < 1)
-            {
-                return heightDefault;
-            }
-            else
-            {
-                return height2;
-            }
-        }
-        else if (height2 < 1)
-        {
-            return height1;
-        }
-        else
-        {
-            return (height1 + height2) / 2;
-        }
-    }
-
-    public class Section
-    {
-
-        public boolean canGenerate;
-        public BlockPos offset;
-        public int capsizing;
-
-        public Section(boolean canGenerateIn, BlockPos offsetIn, int capsizingIn)
-        {
-            canGenerate = canGenerateIn;
-            offset = offsetIn;
-            capsizing = capsizingIn;
-        }
-
-    }
 
 }
