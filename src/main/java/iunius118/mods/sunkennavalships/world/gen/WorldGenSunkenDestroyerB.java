@@ -40,7 +40,7 @@ public class WorldGenSunkenDestroyerB extends WorldGenSunkenNavalShip
         int dx = facing.getDirectionVec().getX() * 16;
         int dz = facing.getDirectionVec().getZ() * 16;
 
-        SunkenNavalShips.logger.info("Generate SunkenDestroyerB between ({}, {}) - ({}, {}).", (x1 + dx * 3), (z1 + dz * 3), (x1 + dx * -4), (z1 + dz * -4));
+        SunkenNavalShips.logger.info("Generate SunkenDestroyer type B between ({}, {}) - ({}, {})", (x1 + dx * 3), (z1 + dz * 3), (x1 + dx * -4), (z1 + dz * -4));
 
         // Calculate each section height values
         int depth = random.nextInt(3);
@@ -114,50 +114,62 @@ public class WorldGenSunkenDestroyerB extends WorldGenSunkenNavalShip
         StructureSunkenDestroyerB structure = new StructureSunkenDestroyerB();
 
         if (sectionBow.canGenerate) {
+            int sectionCapsizing = sectionBow.capsizing;
+            BlockPos sectionOffset = sectionBow.offset;
             float integrity = random.nextFloat() * 0.4F + 0.6F;
-            structure.pieces.put(Pieces.BOW, structure.structures[sectionBow.capsizing].pieces.get(Pieces.BOW).copy().addOffset(sectionBow.offset).setIntegrity(integrity));
+
+            structure.pieces.put(Pieces.BOW, structure.structures[sectionCapsizing].pieces.get(Pieces.BOW).copy().addOffset(sectionOffset).setIntegrity(integrity));
 
             if (random.nextInt(4) != 0) {
-                structure.pieces.put(Pieces.GUN1, structure.structures[sectionBow.capsizing].pieces.get(Pieces.GUN1).copy().addOffset(sectionBow.offset));
+                structure.pieces.put(Pieces.GUN1, structure.structures[sectionCapsizing].pieces.get(Pieces.GUN1).copy().addOffset(sectionOffset));
             }
         }
 
         if (sectionMidfront.canGenerate) {
+            int sectionCapsizing = sectionMidfront.capsizing;
+            BlockPos sectionOffset = sectionMidfront.offset;
             float integrity = random.nextFloat() * 0.4F + 0.6F;
-            structure.pieces.put(Pieces.MIDFRONT, structure.structures[sectionMidfront.capsizing].pieces.get(Pieces.MIDFRONT).copy().addOffset(sectionMidfront.offset).setIntegrity(integrity));
+
+            structure.pieces.put(Pieces.MIDFRONT, structure.structures[sectionCapsizing].pieces.get(Pieces.MIDFRONT).copy().addOffset(sectionOffset).setIntegrity(integrity));
 
             if (random.nextInt(2) != 0) {
-                structure.pieces.put(Pieces.FOREMAST, structure.structures[sectionMidfront.capsizing].pieces.get(Pieces.FOREMAST).copy().addOffset(sectionMidfront.offset));
+                structure.pieces.put(Pieces.FOREMAST, structure.structures[sectionCapsizing].pieces.get(Pieces.FOREMAST).copy().addOffset(sectionOffset));
             }
 
             if (random.nextInt(5) != 0) {
-                structure.pieces.put(Pieces.TORPEDO1, structure.structures[sectionMidfront.capsizing].pieces.get(Pieces.TORPEDO1).copy().addOffset(sectionMidfront.offset));
+                structure.pieces.put(Pieces.TORPEDO1, structure.structures[sectionCapsizing].pieces.get(Pieces.TORPEDO1).copy().addOffset(sectionOffset));
             }
         }
 
         if (sectionMidback.canGenerate) {
+            int sectionCapsizing = sectionMidback.capsizing;
+            BlockPos sectionOffset = sectionMidback.offset;
             float integrity = random.nextFloat() * 0.4F + 0.6F;
-            structure.pieces.put(Pieces.MIDBACK, structure.structures[sectionMidback.capsizing].pieces.get(Pieces.MIDBACK).copy().addOffset(sectionMidback.offset).setIntegrity(integrity));
+
+            structure.pieces.put(Pieces.MIDBACK, structure.structures[sectionCapsizing].pieces.get(Pieces.MIDBACK).copy().addOffset(sectionOffset).setIntegrity(integrity));
 
             if (random.nextInt(5) != 0) {
-                structure.pieces.put(Pieces.TORPEDO2, structure.structures[sectionMidback.capsizing].pieces.get(Pieces.TORPEDO2).copy().addOffset(sectionMidback.offset));
+                structure.pieces.put(Pieces.TORPEDO2, structure.structures[sectionCapsizing].pieces.get(Pieces.TORPEDO2).copy().addOffset(sectionOffset));
             }
         }
 
         if (sectionStern.canGenerate) {
+            int sectionCapsizing = sectionStern.capsizing;
+            BlockPos sectionOffset = sectionStern.offset;
             float integrity = random.nextFloat() * 0.4F + 0.6F;
-            structure.pieces.put(Pieces.STERN, structure.structures[sectionStern.capsizing].pieces.get(Pieces.STERN).copy().addOffset(sectionStern.offset).setIntegrity(integrity));
+
+            structure.pieces.put(Pieces.STERN, structure.structures[sectionCapsizing].pieces.get(Pieces.STERN).copy().addOffset(sectionOffset).setIntegrity(integrity));
 
             if (random.nextInt(2) != 0) {
-                structure.pieces.put(Pieces.MAINMAST, structure.structures[sectionMidback.capsizing].pieces.get(Pieces.MAINMAST).copy().addOffset(sectionMidback.offset));
+                structure.pieces.put(Pieces.MAINMAST, structure.structures[sectionCapsizing].pieces.get(Pieces.MAINMAST).copy().addOffset(sectionOffset));
             }
 
             if (random.nextInt(4) != 0) {
-                structure.pieces.put(Pieces.GUN2, structure.structures[sectionStern.capsizing].pieces.get(Pieces.GUN2).copy().addOffset(sectionStern.offset));
+                structure.pieces.put(Pieces.GUN2, structure.structures[sectionCapsizing].pieces.get(Pieces.GUN2).copy().addOffset(sectionOffset));
             }
 
             if (random.nextInt(4) != 0) {
-                structure.pieces.put(Pieces.GUN3, structure.structures[sectionStern.capsizing].pieces.get(Pieces.GUN3).copy().addOffset(sectionStern.offset));
+                structure.pieces.put(Pieces.GUN3, structure.structures[sectionCapsizing].pieces.get(Pieces.GUN3).copy().addOffset(sectionOffset));
             }
         }
 
