@@ -72,7 +72,7 @@ public class SunkenNavalShips
             config.load();
 
             propSunkenShipProbability = Config.config.get(Configuration.CATEGORY_GENERAL, "sunkenShipProbability", sunkenShipProbability,
-                    "The Probability of generating sunken ship. 0 - 100. Set to 0 for stopping the generation.", 0, 100)
+                    "The Probability of generating sunken ship. 0 - 100. Set to 0 for stopping sunken ship generator.", 0, 100)
                     .setConfigEntryClass(NumberSliderEntry.class);
             sunkenShipProbability = propSunkenShipProbability.getInt();
 
