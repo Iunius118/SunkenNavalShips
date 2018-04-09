@@ -18,19 +18,38 @@ public class WorldGenSunkenNavalShip implements IWorldGenerator
 
     public static final int CHANCE_DENOMINATOR = 12800;
 
-    public static final WorldGenSunkenNavalShip[] WORLD_GEN_SUNKEN_NAVAL_SHIPS = {new WorldGenSunkenDestroyerA(), new WorldGenSunkenDestroyerB()};
+    public static final WorldGenSunkenNavalShip[] WORLD_GEN_SUNKEN_NAVAL_SHIPS = {
+            new WorldGenSunkenDestroyerA(),
+            new WorldGenSunkenDestroyerB(),
+            new WorldGenSunkenDestroyerC()
+            };
 
     @Override
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
     {
-        /*  // For debug
+        boolean isDebug = false;
+
+        /*  // For debugging
+        isDebug = true;
+
         if (chunkX == 0 && chunkZ == 0)
         {
-            PlacementSettings placement = new PlacementSettings().setReplacedBlock(Blocks.STRUCTURE_VOID);
-            StructureSunkenDestroyerA.structureSunkenDestroyerA0.addBlocksToWorld(world, new BlockPos(0, 6, 0), EnumFacing.SOUTH, placement);
+            boolean isRandomDameged = true;
+
+            if (isRandomDameged)
+            {
+                WORLD_GEN_SUNKEN_NAVAL_SHIPS[1].generate(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider); // require Biomes.OCEAN world
+            } else {
+                PlacementSettings placement = new PlacementSettings().setReplacedBlock(Blocks.STRUCTURE_VOID);
+                StructureSunkenDestroyerC.structureSunkenDestroyerC0.addBlocksToWorld(world, new BlockPos(0, 6, 0), EnumFacing.SOUTH, placement);
+            }
+
+        }
+
+        if (isDebug) {
             return;
         }
-        */
+        // */
 
         if (!canGenerate(random, chunkX, chunkZ, world))
         {
