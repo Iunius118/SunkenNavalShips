@@ -5,6 +5,10 @@
 # Exclude source
 !/src/
 
+# Exclude docs
+!/docs/
+!*.md
+
 # Others
 !README.md
 !.gitignore
