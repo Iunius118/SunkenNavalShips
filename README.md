@@ -17,7 +17,7 @@ SunkenNavalShipsはMinecraftの世界に沈没艦を生成するmodです。
 ### 生成される沈没艦について
 以下のページを参照してください。
 
-- [ships.md](ships.mb)
+- [ships.md](ships.md)
 
 ### Configuration
 ゲームメニューのmodリストからSunkenNavalShipsを選択し、Configボタンを押すと設定画面に移動します。
