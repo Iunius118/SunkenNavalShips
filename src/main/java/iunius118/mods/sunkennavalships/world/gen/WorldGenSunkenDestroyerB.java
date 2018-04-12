@@ -40,7 +40,7 @@ public class WorldGenSunkenDestroyerB extends WorldGenSunkenNavalShip
         int dx = facing.getDirectionVec().getX() * 16;
         int dz = facing.getDirectionVec().getZ() * 16;
 
-        SunkenNavalShips.logger.info("Generate SunkenDestroyer B class between ({}, {}) - ({}, {})", (x1 + dx * 3), (z1 + dz * 3), (x1 + dx * -4), (z1 + dz * -4));
+        SunkenNavalShips.logger.info("Generate SunkenDestroyer type B between ({}, {}) - ({}, {})", (x1 + dx * 3), (z1 + dz * 3), (x1 + dx * -4), (z1 + dz * -4));
 
         // Calculate each section height values
         int depth = random.nextInt(3);
