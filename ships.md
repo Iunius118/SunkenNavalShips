@@ -1,7 +1,7 @@
 # SunkenNavalShips
 https://github.com/Iunius118/SunkenNavalShips
 
-## 実装されている沈没艦 (v 1.1.0)
+## 生成される沈没艦 (v 1.1.0)
 ### 駆逐艦 A 型
 実際の生成例  
 [<img src="docs/img/dd_a_sunken.jpg" title="Destroyer type A sunken" width="427">](docs/img/dd_a_sunken.jpg)
@@ -36,7 +36,7 @@ https://github.com/Iunius118/SunkenNavalShips
 - 533 mm 魚雷管 4門×2基
 - 爆雷投射機 4基
 
-## 未実装の沈没艦
+## 実装予定の沈没艦
 ### 駆逐艦 C 型
 実際の生成例  
 [<img src="docs/img/dd_c_sunken_x.jpg" title="Destroyer type C sunken" width="427">](docs/img/dd_c_sunken_x.jpg)

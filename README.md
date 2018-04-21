@@ -5,6 +5,8 @@ SunkenNavalShipsはMinecraftの世界に沈没艦を生成するmodです。
 - v 1.1.0 for Minecraft 1.12(.x)
 
 ## Downloads
+Releasesページの**Assets**にある **SunkenNavalShips-(Minecraftバージョン)-(modバージョン).jar** をクリックしてください。
+
 - [Releases (from GitHub)](https://github.com/Iunius118/SunkenNavalShips/releases)
 
 ## Features
@@ -15,7 +17,7 @@ SunkenNavalShipsはMinecraftの世界に沈没艦を生成するmodです。
 
 ## Description
 ### 生成される沈没艦について
-以下のページを参照してください。
+以下の文書を参照してください。
 
 - [ships.md](ships.md)
 
