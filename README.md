@@ -31,5 +31,18 @@ Releasesページの**Assets**にある **SunkenNavalShips-(Minecraftバージ�
   - 変更した生成確率は、変更後新たに生成された地形に対して適用されます
   - 初期値は32です
 
+### 出力されるログについて
+沈没艦の生成時には生成座標をログに出力します。
 
+```
+[sunkennavalships]: Generate SunkenDestroyer {type} between ({x1}, {z1}) - ({x2}, [z2])
+```
+
+また、沈没艦の生成時に以下のような警告ログが出力されることがありますが、これは現時点ではこのmodの仕様です。
+
+```
+[FML]: SunkenNavalShips loaded a new chunk ({chunkX}, {chunkZ}  Dimension: 0) during chunk population, causing cascading worldgen lag. Please report this to the mod's issue tracker. This log can be disabled in the Forge config.
+```
+
+---
 Copyright 2018 Iunius118

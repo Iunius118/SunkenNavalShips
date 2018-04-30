@@ -59,7 +59,7 @@ https://github.com/Iunius118/SunkenNavalShips
 
 ### 駆逐艦 D 型
 実際の生成例  
-[<img src="docs/img/comingsoon.jpg" title="Destroyer type D sunken" width="427">](docs/img/comingsoon.jpg)
+[<img src="docs/img/dd_d_sunken_x.jpg" title="Destroyer type D sunken" width="427">](docs/img/dd_d_sunken.jpg)
 
 沈没前のイメージ  
 [<img src="docs/img/dd_d_in-service_x.jpg" title="Destroyer type D in-service" width="427">](docs/img/dd_d_in-service.jpg)
@@ -68,12 +68,12 @@ https://github.com/Iunius118/SunkenNavalShips
 
 - 全長 110 m
 - 最大幅 11 m
-- 体積 6482 ブロック
+- 体積 6478 ブロック
 - 2軸推進、ボイラー 2基、タービン 2基（集中配置）
 - 120 mm 砲 2門×3基
 - 533 mm 魚雷管 5門×2基
 - 爆雷投射機 2基
 - 爆雷投下軌条 1基
 
-
+---
 Copyright 2018 Iunius118
