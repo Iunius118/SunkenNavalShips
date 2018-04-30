@@ -1,8 +1,5 @@
 package iunius118.mods.sunkennavalships.world.gen.structure;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import iunius118.mods.sunkennavalships.SunkenNavalShips;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Mirror;
@@ -12,12 +9,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.structure.template.PlacementSettings;
 
-public class StructureSunkenDestroyerB
+public class StructureSunkenDestroyerB extends StructureSunkenShip
 {
 
     public enum Pieces
     {
-        BOW, GUN1, MIDFRONT, FOREMAST, TORPEDO1, MIDBACK, TORPEDO2, STERN, MAINMAST, GUN2, GUN3;
+        BOW, GUN1,
+        MIDFRONT, FOREMAST, TORPEDO1,
+        MIDBACK, TORPEDO2,
+        STERN, MAINMAST, GUN2, GUN3;
     }
 
     public enum IDs
@@ -60,27 +60,26 @@ public class StructureSunkenDestroyerB
 
     }
 
-    public final Map<Pieces, Piece> pieces = new HashMap();
-
     public static final StructureSunkenDestroyerB structureSunkenDestroyerB0;
     static
     {
         structureSunkenDestroyerB0 = new StructureSunkenDestroyerB();
 
-        structureSunkenDestroyerB0.pieces.put(Pieces.BOW, new Piece(IDs.DE_DD_Z23_0_BOW_ID.getId(), null, null, new BlockPos(3, 0, 32), 1.0F));
-        structureSunkenDestroyerB0.pieces.put(Pieces.GUN1, new Piece(IDs.DE_DD_Z23_0_GUN_A_ID.getId(), null, null, new BlockPos(5, 10, 37), 1.0F));
+        structureSunkenDestroyerB0
+                .addPiece(Pieces.BOW, IDs.DE_DD_Z23_0_BOW_ID.getId(), null, null, new BlockPos(3, 0, 32), 1.0F)
+                .addPiece(Pieces.GUN1, IDs.DE_DD_Z23_0_GUN_A_ID.getId(), null, null, new BlockPos(5, 10, 37), 1.0F)
 
-        structureSunkenDestroyerB0.pieces.put(Pieces.MIDFRONT, new Piece(IDs.DE_DD_Z23_0_MIDFRONT_ID.getId(), null, null, new BlockPos(2, 0, 0), 1.0F));
-        structureSunkenDestroyerB0.pieces.put(Pieces.FOREMAST, new Piece(IDs.DE_DD_Z23_0_FOREMAST_ID.getId(), null, null, new BlockPos(4, 10, 16), 1.0F));
-        structureSunkenDestroyerB0.pieces.put(Pieces.TORPEDO1, new Piece(IDs.DE_DD_Z23_0_TORPEDO_ID.getId(), null, null, new BlockPos(6, 8, 0), 1.0F));
+                .addPiece(Pieces.MIDFRONT, IDs.DE_DD_Z23_0_MIDFRONT_ID.getId(), null, null, new BlockPos(2, 0, 0), 1.0F)
+                .addPiece(Pieces.FOREMAST, IDs.DE_DD_Z23_0_FOREMAST_ID.getId(), null, null, new BlockPos(4, 10, 16), 1.0F)
+                .addPiece(Pieces.TORPEDO1, IDs.DE_DD_Z23_0_TORPEDO_ID.getId(), null, null, new BlockPos(6, 8, 0), 1.0F)
 
-        structureSunkenDestroyerB0.pieces.put(Pieces.MIDBACK, new Piece(IDs.DE_DD_Z23_0_MIDBACK_ID.getId(), null, null, new BlockPos(2, 0, -32), 1.0F));
-        structureSunkenDestroyerB0.pieces.put(Pieces.TORPEDO2, new Piece(IDs.DE_DD_Z23_0_TORPEDO_ID.getId(), null, null, new BlockPos(6, 8, -25), 1.0F));
+                .addPiece(Pieces.MIDBACK, IDs.DE_DD_Z23_0_MIDBACK_ID.getId(), null, null, new BlockPos(2, 0, -32), 1.0F)
+                .addPiece(Pieces.TORPEDO2, IDs.DE_DD_Z23_0_TORPEDO_ID.getId(), null, null, new BlockPos(6, 8, -25), 1.0F)
 
-        structureSunkenDestroyerB0.pieces.put(Pieces.STERN, new Piece(IDs.DE_DD_Z23_0_STERN_ID.getId(), null, null, new BlockPos(3, 0, -64), 1.0F));
-        structureSunkenDestroyerB0.pieces.put(Pieces.MAINMAST, new Piece(IDs.DE_DD_Z23_0_MAINMAST_ID.getId(), null, null, new BlockPos(5, 10, -37), 1.0F));
-        structureSunkenDestroyerB0.pieces.put(Pieces.GUN2, new Piece(IDs.DE_DD_Z23_0_GUN_B_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(6, 10, -41), 1.0F));
-        structureSunkenDestroyerB0.pieces.put(Pieces.GUN3, new Piece(IDs.DE_DD_Z23_0_GUN_B_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(6, 7, -49), 1.0F));
+                .addPiece(Pieces.STERN, IDs.DE_DD_Z23_0_STERN_ID.getId(), null, null, new BlockPos(3, 0, -64), 1.0F)
+                .addPiece(Pieces.MAINMAST, IDs.DE_DD_Z23_0_MAINMAST_ID.getId(), null, null, new BlockPos(5, 10, -37), 1.0F)
+                .addPiece(Pieces.GUN2, IDs.DE_DD_Z23_0_GUN_B_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(6, 10, -41), 1.0F)
+                .addPiece(Pieces.GUN3, IDs.DE_DD_Z23_0_GUN_B_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(6, 7, -49), 1.0F);
     }
 
     public static final StructureSunkenDestroyerB structureSunkenDestroyerB1;
@@ -88,20 +87,21 @@ public class StructureSunkenDestroyerB
     {
         structureSunkenDestroyerB1 = new StructureSunkenDestroyerB();
 
-        structureSunkenDestroyerB1.pieces.put(Pieces.BOW, new Piece(IDs.DE_DD_Z23_1_BOW_ID.getId(), null, null, new BlockPos(2, 1, 32), 1.0F));
-        structureSunkenDestroyerB1.pieces.put(Pieces.GUN1, new Piece(IDs.DE_DD_Z23_1_GUN_A_ID.getId(), null, null, new BlockPos(12, 3, 37), 1.0F));
+        structureSunkenDestroyerB1
+                .addPiece(Pieces.BOW, IDs.DE_DD_Z23_1_BOW_ID.getId(), null, null, new BlockPos(2, 1, 32), 1.0F)
+                .addPiece(Pieces.GUN1, IDs.DE_DD_Z23_1_GUN_A_ID.getId(), null, null, new BlockPos(12, 3, 37), 1.0F)
 
-        structureSunkenDestroyerB1.pieces.put(Pieces.MIDFRONT, new Piece(IDs.DE_DD_Z23_1_MIDFRONT_ID.getId(), null, null, new BlockPos(2, 0, 0), 1.0F));
-        structureSunkenDestroyerB1.pieces.put(Pieces.FOREMAST, new Piece(IDs.DE_DD_Z23_1_FOREMAST_ID.getId(), null, null, new BlockPos(12, 2, 16), 1.0F));
-        structureSunkenDestroyerB1.pieces.put(Pieces.TORPEDO1, new Piece(IDs.DE_DD_Z23_1_TORPEDO_ID.getId(), null, null, new BlockPos(10, 4, 0), 1.0F));
+                .addPiece(Pieces.MIDFRONT, IDs.DE_DD_Z23_1_MIDFRONT_ID.getId(), null, null, new BlockPos(2, 0, 0), 1.0F)
+                .addPiece(Pieces.FOREMAST, IDs.DE_DD_Z23_1_FOREMAST_ID.getId(), null, null, new BlockPos(12, 2, 16), 1.0F)
+                .addPiece(Pieces.TORPEDO1, IDs.DE_DD_Z23_1_TORPEDO_ID.getId(), null, null, new BlockPos(10, 4, 0), 1.0F)
 
-        structureSunkenDestroyerB1.pieces.put(Pieces.MIDBACK, new Piece(IDs.DE_DD_Z23_1_MIDBACK_ID.getId(), null, null, new BlockPos(2, 0, -32), 1.0F));
-        structureSunkenDestroyerB1.pieces.put(Pieces.TORPEDO2, new Piece(IDs.DE_DD_Z23_1_TORPEDO_ID.getId(), null, null, new BlockPos(10, 4, -25), 1.0F));
+                .addPiece(Pieces.MIDBACK, IDs.DE_DD_Z23_1_MIDBACK_ID.getId(), null, null, new BlockPos(2, 0, -32), 1.0F)
+                .addPiece(Pieces.TORPEDO2, IDs.DE_DD_Z23_1_TORPEDO_ID.getId(), null, null, new BlockPos(10, 4, -25), 1.0F)
 
-        structureSunkenDestroyerB1.pieces.put(Pieces.STERN, new Piece(IDs.DE_DD_Z23_1_STERN_ID.getId(), null, null, new BlockPos(2, 1, -64), 1.0F));
-        structureSunkenDestroyerB1.pieces.put(Pieces.MAINMAST, new Piece(IDs.DE_DD_Z23_1_MAINMAST_ID.getId(), null, null, new BlockPos(12, 3, -37), 1.0F));
-        structureSunkenDestroyerB1.pieces.put(Pieces.GUN2, new Piece(IDs.DE_DD_Z23_1_GUN_B_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(12, 4, -41), 1.0F));
-        structureSunkenDestroyerB1.pieces.put(Pieces.GUN3, new Piece(IDs.DE_DD_Z23_1_GUN_B_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(9, 4, -49), 1.0F));
+                .addPiece(Pieces.STERN, IDs.DE_DD_Z23_1_STERN_ID.getId(), null, null, new BlockPos(2, 1, -64), 1.0F)
+                .addPiece(Pieces.MAINMAST, IDs.DE_DD_Z23_1_MAINMAST_ID.getId(), null, null, new BlockPos(12, 3, -37), 1.0F)
+                .addPiece(Pieces.GUN2, IDs.DE_DD_Z23_1_GUN_B_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(12, 4, -41), 1.0F)
+                .addPiece(Pieces.GUN3, IDs.DE_DD_Z23_1_GUN_B_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(9, 4, -49), 1.0F);
     }
 
     public static final StructureSunkenDestroyerB structureSunkenDestroyerB2;
@@ -109,20 +109,21 @@ public class StructureSunkenDestroyerB
     {
         structureSunkenDestroyerB2 = new StructureSunkenDestroyerB();
 
-        structureSunkenDestroyerB2.pieces.put(Pieces.BOW, new Piece(IDs.DE_DD_Z23_1_BOW_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 1, 32), 1.0F));
-        structureSunkenDestroyerB2.pieces.put(Pieces.GUN1, new Piece(IDs.DE_DD_Z23_1_GUN_A_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(2, 3, 37), 1.0F));
+        structureSunkenDestroyerB2
+                .addPiece(Pieces.BOW, IDs.DE_DD_Z23_1_BOW_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 1, 32), 1.0F)
+                .addPiece(Pieces.GUN1, IDs.DE_DD_Z23_1_GUN_A_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(2, 3, 37), 1.0F)
 
-        structureSunkenDestroyerB2.pieces.put(Pieces.MIDFRONT, new Piece(IDs.DE_DD_Z23_2_MIDFRONT_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 0, 0), 1.0F));
-        structureSunkenDestroyerB2.pieces.put(Pieces.FOREMAST, new Piece(IDs.DE_DD_Z23_1_FOREMAST_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(2, 2, 16), 1.0F));
-        structureSunkenDestroyerB2.pieces.put(Pieces.TORPEDO1, new Piece(IDs.DE_DD_Z23_1_TORPEDO_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(4, 4, 0), 1.0F));
+                .addPiece(Pieces.MIDFRONT, IDs.DE_DD_Z23_2_MIDFRONT_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 0, 0), 1.0F)
+                .addPiece(Pieces.FOREMAST, IDs.DE_DD_Z23_1_FOREMAST_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(2, 2, 16), 1.0F)
+                .addPiece(Pieces.TORPEDO1, IDs.DE_DD_Z23_1_TORPEDO_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(4, 4, 0), 1.0F)
 
-        structureSunkenDestroyerB2.pieces.put(Pieces.MIDBACK, new Piece(IDs.DE_DD_Z23_2_MIDBACK_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 0, -32), 1.0F));
-        structureSunkenDestroyerB2.pieces.put(Pieces.TORPEDO2, new Piece(IDs.DE_DD_Z23_1_TORPEDO_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(4, 4, -25), 1.0F));
+                .addPiece(Pieces.MIDBACK, IDs.DE_DD_Z23_2_MIDBACK_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 0, -32), 1.0F)
+                .addPiece(Pieces.TORPEDO2, IDs.DE_DD_Z23_1_TORPEDO_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(4, 4, -25), 1.0F)
 
-        structureSunkenDestroyerB2.pieces.put(Pieces.STERN, new Piece(IDs.DE_DD_Z23_1_STERN_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 1, -64), 1.0F));
-        structureSunkenDestroyerB2.pieces.put(Pieces.MAINMAST, new Piece(IDs.DE_DD_Z23_1_MAINMAST_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(2, 3, -37), 1.0F));
-        structureSunkenDestroyerB2.pieces.put(Pieces.GUN2, new Piece(IDs.DE_DD_Z23_1_GUN_B_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(2, 4, -41), 1.0F));
-        structureSunkenDestroyerB2.pieces.put(Pieces.GUN3, new Piece(IDs.DE_DD_Z23_1_GUN_B_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(5, 4, -49), 1.0F));
+                .addPiece(Pieces.STERN, IDs.DE_DD_Z23_1_STERN_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 1, -64), 1.0F)
+                .addPiece(Pieces.MAINMAST, IDs.DE_DD_Z23_1_MAINMAST_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(2, 3, -37), 1.0F)
+                .addPiece(Pieces.GUN2, IDs.DE_DD_Z23_1_GUN_B_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(2, 4, -41), 1.0F)
+                .addPiece(Pieces.GUN3, IDs.DE_DD_Z23_1_GUN_B_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(5, 4, -49), 1.0F);
     }
 
     public static final StructureSunkenDestroyerB[] structures = {structureSunkenDestroyerB0, structureSunkenDestroyerB1, structureSunkenDestroyerB2};
