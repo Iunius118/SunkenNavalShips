@@ -68,9 +68,9 @@ public class StructureSunkenDestroyerD extends StructureSunkenShip
                 .addPiece(Pieces.FOREMAST, IDs.UK_DD_J_0_FOREMAST_ID.getId(), null, null, new BlockPos(2, 8, 8), 1.0F)
 
                 .addPiece(Pieces.MIDBACK, IDs.UK_DD_J_0_MIDBACK_ID.getId(), null, null, new BlockPos(2, 0, -32), 1.0F)
-                .addPiece(Pieces.TORPEDO1, IDs.UK_DD_J_0_TORPEDO_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(9, 7, -7), 1.0F)
-                .addPiece(Pieces.TORPEDO2, IDs.UK_DD_J_0_TORPEDO_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(9, 7, -20), 1.0F)
-                .addPiece(Pieces.MAINMAST, IDs.UK_DD_J_0_MAINMAST_ID.getId(), null, null, new BlockPos(6, 7, -31), 1.0F)
+                .addPiece(Pieces.TORPEDO1, IDs.UK_DD_J_0_TORPEDO_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(9, 7, -5), 1.0F)
+                .addPiece(Pieces.TORPEDO2, IDs.UK_DD_J_0_TORPEDO_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(9, 7, -19), 1.0F)
+                .addPiece(Pieces.MAINMAST, IDs.UK_DD_J_0_MAINMAST_ID.getId(), null, null, new BlockPos(6, 7, -30), 1.0F)
 
                 .addPiece(Pieces.STERN, IDs.UK_DD_J_0_STERN_ID.getId(), null, null, new BlockPos(2, 0, -55), 1.0F)
                 .addPiece(Pieces.GUN3, IDs.UK_DD_J_0_GUN_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(9, 10, -36), 1.0F);
@@ -90,9 +90,9 @@ public class StructureSunkenDestroyerD extends StructureSunkenShip
                 .addPiece(Pieces.FOREMAST, IDs.UK_DD_J_1_FOREMAST_ID.getId(), null, null, new BlockPos(10, 0, 8), 1.0F)
 
                 .addPiece(Pieces.MIDBACK, IDs.UK_DD_J_1_MIDBACK_ID.getId(), null, null, new BlockPos(2, 0, -32), 1.0F)
-                .addPiece(Pieces.TORPEDO1, IDs.UK_DD_J_2_TORPEDO_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(9, 3, -7), 1.0F)
-                .addPiece(Pieces.TORPEDO2, IDs.UK_DD_J_2_TORPEDO_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(9, 3, -20), 1.0F)
-                .addPiece(Pieces.MAINMAST, IDs.UK_DD_J_1_MAINMAST_ID.getId(), null, null, new BlockPos(9, 4, -31), 1.0F)
+                .addPiece(Pieces.TORPEDO1, IDs.UK_DD_J_2_TORPEDO_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(9, 3, -5), 1.0F)
+                .addPiece(Pieces.TORPEDO2, IDs.UK_DD_J_2_TORPEDO_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(9, 3, -19), 1.0F)
+                .addPiece(Pieces.MAINMAST, IDs.UK_DD_J_1_MAINMAST_ID.getId(), null, null, new BlockPos(9, 4, -30), 1.0F)
 
                 .addPiece(Pieces.STERN, IDs.UK_DD_J_1_STERN_ID.getId(), null, null, new BlockPos(2, 0, -55), 1.0F)
                 .addPiece(Pieces.GUN3, IDs.UK_DD_J_1_GUN_ID.getId(), Mirror.LEFT_RIGHT, null, new BlockPos(12, 3, -36), 1.0F);
@@ -113,9 +113,9 @@ public class StructureSunkenDestroyerD extends StructureSunkenShip
                 .addPiece(Pieces.FOREMAST, IDs.UK_DD_J_1_FOREMAST_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(4, 0, 8), 1.0F)
 
                 .addPiece(Pieces.MIDBACK, IDs.UK_DD_J_1_MIDBACK_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 0, -32), 1.0F)
-                .addPiece(Pieces.TORPEDO1, IDs.UK_DD_J_1_TORPEDO_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(5, 3, -7), 1.0F)
-                .addPiece(Pieces.TORPEDO2, IDs.UK_DD_J_1_TORPEDO_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(5, 3, -20), 1.0F)
-                .addPiece(Pieces.MAINMAST, IDs.UK_DD_J_1_MAINMAST_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(5, 4, -31), 1.0F)
+                .addPiece(Pieces.TORPEDO1, IDs.UK_DD_J_1_TORPEDO_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(5, 3, -5), 1.0F)
+                .addPiece(Pieces.TORPEDO2, IDs.UK_DD_J_1_TORPEDO_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(5, 3, -19), 1.0F)
+                .addPiece(Pieces.MAINMAST, IDs.UK_DD_J_1_MAINMAST_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(5, 4, -30), 1.0F)
 
                 .addPiece(Pieces.STERN, IDs.UK_DD_J_1_STERN_ID.getId(), Mirror.FRONT_BACK, null, new BlockPos(12, 0, -55), 1.0F)
                 .addPiece(Pieces.GUN3, IDs.UK_DD_J_1_GUN_ID.getId(), null, Rotation.CLOCKWISE_180, new BlockPos(2, 3, -36), 1.0F);

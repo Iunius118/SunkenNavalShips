@@ -31,7 +31,7 @@ public class WorldGenSunkenNavalShip implements IWorldGenerator
     public void generate(Random random, int chunkX, int chunkZ, World world, IChunkGenerator chunkGenerator, IChunkProvider chunkProvider)
     {
         /* // For debugging
-        boolean isDebug = false;
+        boolean isDebug = true;
 
         if (chunkX == 0 && chunkZ == 0)
         {
@@ -42,7 +42,7 @@ public class WorldGenSunkenNavalShip implements IWorldGenerator
                 WORLD_GEN_SUNKEN_NAVAL_SHIPS[0].generate(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider); // require Biomes.OCEAN world
             } else {
                 PlacementSettings placement = new PlacementSettings().setReplacedBlock(Blocks.STRUCTURE_VOID);
-                StructureSunkenDestroyerD.structureSunkenDestroyerD2.addBlocksToWorld(world, new BlockPos(chunkX, 6, chunkZ), EnumFacing.SOUTH, placement);
+                StructureSunkenDestroyerD.structureSunkenDestroyerD0.addBlocksToWorld(world, new BlockPos(chunkX, 6, chunkZ), EnumFacing.SOUTH, placement);
                 //StructureSunkenShip.structureTest.addBlocksToWorld(world, new BlockPos(chunkX, 6, chunkZ), EnumFacing.SOUTH, placement);
             }
 
