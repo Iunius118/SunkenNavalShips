@@ -1,5 +1,7 @@
 package iunius118.mods.sunkennavalships;
 
+import java.util.Map;
+
 import org.apache.logging.log4j.Logger;
 
 import iunius118.mods.sunkennavalships.world.gen.WorldGenSunkenNavalShip;
@@ -14,7 +16,10 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.network.NetworkCheckHandler;
 import net.minecraftforge.fml.common.registry.GameRegistry;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
 
 @Mod
 (
@@ -51,7 +56,14 @@ public class SunkenNavalShips
         MinecraftForge.EVENT_BUS.register(this);    // For subscribing ConfigChangedEvent
     }
 
+    @NetworkCheckHandler
+    public boolean netCheckHandler(Map<String, String> mods, Side side)
+    {
+        return true;
+    }
+
     @SubscribeEvent
+    @SideOnly(Side.CLIENT)
     public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event)
     {
         if (event.getModID().equals(MOD_ID))
@@ -74,8 +86,13 @@ public class SunkenNavalShips
             config.load();
 
             propSunkenShipProbability = Config.config.get(Configuration.CATEGORY_GENERAL, "sunkenShipProbability", sunkenShipProbability,
-                    "The Probability of generating sunken ship. 0 - 100. Set to 0 for stopping sunken ship generator.", 0, 100)
-                    .setConfigEntryClass(NumberSliderEntry.class);
+                    "The Probability of generating sunken ship. 0 - 100. Set to 0 for stopping sunken ship generator.", 0, 100);
+
+            if (event.getSide().isClient())
+            {
+                propSunkenShipProbability.setConfigEntryClass(NumberSliderEntry.class);
+            }
+
             sunkenShipProbability = propSunkenShipProbability.getInt();
 
             config.save();
