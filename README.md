@@ -19,7 +19,7 @@ Releasesページの**Assets**にある **SunkenNavalShips-(Minecraftバージ�
 ### 生成される沈没艦について
 以下の文書を参照してください。
 
-- [ships.md](ships.md)
+- [docs/ships.md](docs/ships.md)
 
 ### Configuration
 ゲームメニューのmodリストからSunkenNavalShipsを選択し、Configボタンを押すと設定画面に移動します。
