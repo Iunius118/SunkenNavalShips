@@ -15,7 +15,7 @@ import net.minecraft.world.gen.structure.template.PlacementSettings;
 public class StructureSunkenShip
 {
 
-    public final Map<Object, Piece> pieces = new HashMap();
+    public final Map<Object, Piece> pieces = new HashMap<Object, Piece>();
 
     public enum Pieces
     {
