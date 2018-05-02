@@ -36,58 +36,68 @@ public class WorldGenSunkenDestroyerA extends WorldGenSunkenDestroyer
         StructureSunkenShip structure = new StructureSunkenShip();
         StructureSunkenShip[] structures = StructureSunkenDestroyerA.structures;
 
-        if (sections.bow.canGenerate) {
+        if (sections.bow.canGenerate)
+        {
             int sectionCapsizing = sections.bow.capsizing;
             BlockPos sectionOffset = sections.bow.offset;
             float integrity = random.nextFloat() * 0.4F + 0.6F;
 
             structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.BOW, structures, sectionCapsizing, sectionOffset, integrity);
 
-            if (random.nextInt(4) != 0) {
+            if (random.nextInt(4) != 0)
+            {
                 structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.GUN1, structures, sectionCapsizing, sectionOffset);
             }
         }
 
-        if (sections.midfront.canGenerate) {
+        if (sections.midfront.canGenerate)
+        {
             int sectionCapsizing = sections.midfront.capsizing;
             BlockPos sectionOffset = sections.midfront.offset;
             float integrity = random.nextFloat() * 0.4F + 0.6F;
 
             structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.MIDFRONT, structures, sectionCapsizing, sectionOffset, integrity);
 
-            if (random.nextInt(2) != 0) {
+            if (random.nextInt(2) != 0)
+            {
                 structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.FOREMAST, structures, sectionCapsizing, sectionOffset);
             }
 
-            if (random.nextInt(5) != 0) {
+            if (random.nextInt(5) != 0)
+            {
                 structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.TORPEDO1, structures, sectionCapsizing, sectionOffset);
             }
         }
 
-        if (sections.midback.canGenerate) {
+        if (sections.midback.canGenerate)
+        {
             int sectionCapsizing = sections.midback.capsizing;
             BlockPos sectionOffset = sections.midback.offset;
             float integrity = random.nextFloat() * 0.4F + 0.6F;
 
             structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.MIDBACK, structures, sectionCapsizing, sectionOffset, integrity);
 
-            if (random.nextInt(5) != 0) {
+            if (random.nextInt(5) != 0)
+            {
                 structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.TORPEDO2, structures, sectionCapsizing, sectionOffset);
             }
 
-            if (random.nextInt(2) != 0) {
+            if (random.nextInt(2) != 0)
+            {
                 structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.MAINMAST, structures, sectionCapsizing, sectionOffset);
             }
         }
 
-        if (sections.stern.canGenerate) {
+        if (sections.stern.canGenerate)
+        {
             int sectionCapsizing = sections.stern.capsizing;
             BlockPos sectionOffset = sections.stern.offset;
             float integrity = random.nextFloat() * 0.4F + 0.6F;
 
             structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.STERN, structures, sectionCapsizing, sectionOffset, integrity);
 
-            if (random.nextInt(4) != 0) {
+            if (random.nextInt(4) != 0)
+            {
                 structure.addPieceFromStructures(StructureSunkenDestroyerA.Pieces.GUN2, structures, sectionCapsizing, sectionOffset);
             }
         }

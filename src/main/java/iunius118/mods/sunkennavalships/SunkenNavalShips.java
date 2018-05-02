@@ -16,7 +16,8 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 
-@Mod(
+@Mod
+(
         modid = SunkenNavalShips.MOD_ID,
         name = SunkenNavalShips.MOD_NAME,
         version = SunkenNavalShips.MOD_VERSION,
@@ -60,7 +61,8 @@ public class SunkenNavalShips
         }
     }
 
-    public static class Config {
+    public static class Config
+    {
 
         public static Configuration config;
 
