@@ -36,8 +36,8 @@ public class SunkenNavalShips
 
     public static final String MOD_ID = "sunkennavalships";
     public static final String MOD_NAME = "SunkenNavalShips";
-    public static final String MOD_VERSION = "${version}";
-    public static final String MOD_DEPENDENCIES = "required-after:forge@[1.12-14.21.1.2387,)";
+    public static final String MOD_VERSION = "1.12.2-2.0.0.0";
+    public static final String MOD_DEPENDENCIES = "required-after:forge@[1.12.2-14.23.4.2705,)";
 
     public static Logger logger;
     public static int sunkenShipProbability = 32;
