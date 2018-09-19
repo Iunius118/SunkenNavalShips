@@ -11,7 +11,6 @@ import net.minecraftforge.common.config.Property;
 import net.minecraftforge.fml.client.config.GuiConfigEntries.NumberSliderEntry;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
@@ -30,7 +29,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
         guiFactory = "iunius118.mods.sunkennavalships.client.gui.ConfigGuiFactory",
         useMetadata = true
         )
-@EventBusSubscriber
 public class SunkenNavalShips
 {
 
@@ -41,6 +39,7 @@ public class SunkenNavalShips
 
     public static Logger logger;
     public static int sunkenShipProbability = 32;
+    public static int anchorMonumentProbability = 10;
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
@@ -53,7 +52,11 @@ public class SunkenNavalShips
     public void init(FMLInitializationEvent event)
     {
         GameRegistry.registerWorldGenerator(new WorldGenSunkenNavalShip(), 5);
-        MinecraftForge.EVENT_BUS.register(this);    // For subscribing ConfigChangedEvent
+
+        if (event.getSide().isClient())
+        {
+            MinecraftForge.EVENT_BUS.register(new ClientEventHandler());    // For subscribing ConfigChangedEvent
+        }
     }
 
     @NetworkCheckHandler
@@ -62,23 +65,13 @@ public class SunkenNavalShips
         return true;
     }
 
-    @SubscribeEvent
-    @SideOnly(Side.CLIENT)
-    public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event)
-    {
-        if (event.getModID().equals(MOD_ID))
-        {
-            Config.config.save();
-            sunkenShipProbability = Config.propSunkenShipProbability.getInt();
-        }
-    }
-
     public static class Config
     {
 
         public static Configuration config;
 
         public static Property propSunkenShipProbability;
+        public static Property propAnchorMonumentProbability;
 
         public static void loadConfig(FMLPreInitializationEvent event)
         {
@@ -88,14 +81,36 @@ public class SunkenNavalShips
             propSunkenShipProbability = Config.config.get(Configuration.CATEGORY_GENERAL, "sunkenShipProbability", sunkenShipProbability,
                     "The Probability of generating sunken ship. 0 - 100. Set to 0 for stopping sunken ship generator.", 0, 100);
 
+            propAnchorMonumentProbability = Config.config.get(Configuration.CATEGORY_GENERAL, "anchorMonumentProbability", anchorMonumentProbability,
+                    "The Probability of generating anchor monument. 0 - 100. Set to 0 for stopping anchor monument generator.", 0, 100);
+
             if (event.getSide().isClient())
             {
                 propSunkenShipProbability.setConfigEntryClass(NumberSliderEntry.class);
+                propAnchorMonumentProbability.setConfigEntryClass(NumberSliderEntry.class);
             }
 
             sunkenShipProbability = propSunkenShipProbability.getInt();
+            anchorMonumentProbability = propAnchorMonumentProbability.getInt();
 
             config.save();
+        }
+
+    }
+
+    @SideOnly(Side.CLIENT)
+    public class ClientEventHandler
+    {
+
+        @SubscribeEvent
+        public void onConfigChanged(ConfigChangedEvent.OnConfigChangedEvent event)
+        {
+            if (event.getModID().equals(MOD_ID))
+            {
+                Config.config.save();
+                sunkenShipProbability = Config.propSunkenShipProbability.getInt();
+                anchorMonumentProbability = Config.propAnchorMonumentProbability.getInt();
+            }
         }
 
     }
