@@ -2,6 +2,8 @@ package iunius118.mods.sunkennavalships.world.gen;
 
 import java.util.Random;
 
+import org.apache.commons.lang3.tuple.Triple;
+
 import iunius118.mods.sunkennavalships.SunkenNavalShips;
 import iunius118.mods.sunkennavalships.world.gen.structure.StructureSunkenShip;
 import net.minecraft.block.Block;
@@ -18,13 +20,10 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 public class WorldGenSunkenNavalShip implements IWorldGenerator
 {
 
-    public static final int CHANCE_DENOMINATOR = 12800;
+    public static final int CHANCE_DENOMINATOR = 3200;
 
     public static final WorldGenSunkenNavalShip[] WORLD_GEN_SUNKEN_NAVAL_SHIPS = {
-            new WorldGenSunkenDestroyerA(),
-            new WorldGenSunkenDestroyerB(),
-            new WorldGenSunkenDestroyerC(),
-            new WorldGenSunkenDestroyerD()
+
             };
 
     @Override
@@ -53,7 +52,7 @@ public class WorldGenSunkenNavalShip implements IWorldGenerator
         }
         // */
 
-        if (!canGenerate(random, chunkX, chunkZ, world))
+        if (!canGenerate(chunkX, chunkZ, world))
         {
             return;
         }
@@ -63,29 +62,58 @@ public class WorldGenSunkenNavalShip implements IWorldGenerator
         WORLD_GEN_SUNKEN_NAVAL_SHIPS[shipType].generate(random, chunkX, chunkZ, world, chunkGenerator, chunkProvider);
     }
 
-    public boolean canGenerate(Random random, int chunkX, int chunkZ, World world)
+    public static Triple<WorldGenSunkenNavalShip, EnumFacing, Random> getWorldGenSunkenNavalShip(int chunkX, int chunkZ, World world)
     {
         int probability = SunkenNavalShips.sunkenShipProbability;
+        final int salt = 0x49534E53;
 
         // Cancel by configuration.
         if (probability == 0)
         {
-            return false;
+            return null;
         }
 
         int dimension = world.provider.getDimension();
 
-        // Exclude Nether and End.
-        if ((dimension == 1 || dimension == -1))
+        // Only Overworld.
+        if ((dimension != 0))
         {
-            return false;
+            return null;
         }
 
-        // Judge!
-        int i = random.nextInt(CHANCE_DENOMINATOR);
-        boolean result = i < probability;
+        // Only even coordinate chank
+        if ((chunkX & 1) == 1 || (chunkZ & 1) == 1)
+        {
+            return null;
+        }
 
-        return result;
+        long seed = (chunkX * 31 + salt) * 31 + chunkZ ^ world.getSeed();
+        Random random = new Random(seed);
+
+        // Judge probability.
+        int i = random.nextInt(CHANCE_DENOMINATOR);
+
+        if (i >= probability)
+        {
+            return null;
+        }
+
+        // Judge Biome.
+        int shipType = random.nextInt(WORLD_GEN_SUNKEN_NAVAL_SHIPS.length);
+        WorldGenSunkenNavalShip shipGen = WORLD_GEN_SUNKEN_NAVAL_SHIPS[shipType];
+        EnumFacing facing = EnumFacing.getHorizontal(random.nextInt(4));
+
+        if (shipGen.canGenerateBiome(facing, chunkX, chunkZ, world) == false)
+        {
+            return null;
+        }
+
+        return Triple.of(shipGen, facing, random);
+    }
+
+    public static boolean canGenerate(int chunkX, int chunkZ, World world)
+    {
+        return getWorldGenSunkenNavalShip(chunkX, chunkZ, world) != null;
     }
 
     public boolean canGenerateBiome(EnumFacing facing, int chunkX, int chunkZ, World world)
@@ -108,29 +136,6 @@ public class WorldGenSunkenNavalShip implements IWorldGenerator
         }
 
         return y;
-    }
-
-    public int averageHeight(int height1, int height2, int heightDefault)
-    {
-        if (height1 < 1)
-        {
-            if (height2 < 1)
-            {
-                return heightDefault;
-            }
-            else
-            {
-                return height2;
-            }
-        }
-        else if (height2 < 1)
-        {
-            return height1;
-        }
-        else
-        {
-            return (height1 + height2) / 2;
-        }
     }
 
     public void addBlocksToWorld(StructureSunkenShip structure, EnumFacing facing, int posX, int posZ, World world)
