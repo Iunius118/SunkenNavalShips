@@ -101,7 +101,7 @@ public class WorldGenSunkenNavalShip implements IWorldGenerator
         // Judge Biome.
         int shipType = random.nextInt(WORLD_GEN_SUNKEN_NAVAL_SHIPS.length);
         WorldGenSunkenNavalShip shipGen = WORLD_GEN_SUNKEN_NAVAL_SHIPS[shipType];
-        EnumFacing facing = EnumFacing.getHorizontal(random.nextInt(4));
+        EnumFacing facing = EnumFacing.byHorizontalIndex(random.nextInt(4));
 
         if (shipGen.canGenerateBiome(facing, chunkX, chunkZ, world) == false)
         {
